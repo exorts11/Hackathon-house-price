@@ -389,3 +389,34 @@ def featureNormalize(X):
 #end
 #
 #end
+
+def modelHouses(test_data):
+
+    # Variables de normalizacion
+    mu = np.array([[6.10335196e-01], [1.76955307e+00], [1.50857332e+03], 
+        [1.00206006e+02], [1.05320810e+03], [1.97146858e+03], [1.98502025e+03]])
+
+    sigma = np.array([[  0.64023441], [0.73065669], [498.99031688], 
+        [172.40375277], [424.31385644], [ 29.96854379], [ 20.48118587]])
+
+    test_data['SalePrice'] = 1
+
+    test, numerical, cat_ord = transform(test_data, 0)
+    test = test.iloc[:,test.columns != 'SalePrice']
+
+    # aplicamos la normalizacion
+    test.loc[:,numerical] = (test.loc[:,numerical]-np.transpose(mu))/ np.transpose(sigma)
+
+    # Agregamos las variables de segundo grado
+    grado = 4
+    for feature in numerical: #+cat_ord:
+        test = pd.concat([test, polyFeatures(test[feature],grado).loc[:,1:]], axis=1).copy()
+
+    grado = 2
+    for feature in cat_ord: #+cat_ord:
+        test = pd.concat([test, polyFeatures(test[feature],grado).loc[:,1:]], axis=1).copy()
+    #X['constant'] = 1
+
+    test_array = np.array(test)
+
+    return test_array
