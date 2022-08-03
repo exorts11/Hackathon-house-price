@@ -70,4 +70,11 @@ train_gd.ipyn                   ----->      exprimento fallido de regresion line
 
 
 ## Bibliografia
+Derivation of the Normal Equation for linear regression.
 http://eli.thegreenplace.net/2014/derivation-of-the-normal-equation-for-linear-regression
+
+Python scikit-learn: exportar clasificador entrenado.
+https://foroayuda.es/python-scikit-learn-exportar-clasificador-entrenado/
+
+sklearn.linear_model.LinearRegression
+https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html?highlight=linearregression#sklearn.linear_model.LinearRegression
