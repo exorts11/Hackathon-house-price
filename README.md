@@ -2,31 +2,31 @@
 
 Comence identificando cuales eran variables categoricas y numericas. Luego rellene todos los valores faltantes.
 
-# ------------------------------------Variables numericas--------------------------
+## Variables numericas
  Los valores nulos encontrados en variables numericas: GarageYrBlt y MasVnrArea se debe a que la feature no existe en la casa,
  por lo que los valores nulos seran reemplazados con el año de construccion de la casa y ceros, respectivamente.
 
  Los valores nulos en LotFrontage seran reemplazados con la raiz cuadrada de LotArea.
 
-# ----------------------------------Variables categoricas ---------------------------
+## Variables categoricas 
  En la columna Electrical existe un valor nulo que sera reemplazado con la moda
  Todos los demas valores nulos se deben a que la caracterictica a la que hacen referencia no existe en la casa, por lo que se 
  sustituiran con el valor 'noApply'.
  
- # ----------------------------Variables categoricas ordinales ----------------------
+## Variables categoricas ordinales 
  Luego cambie los valores de las categoricas ordinales por numeros
 
-# ------------------------------------- Correlacion ----------------------------------
+##  Correlacion 
 Una vez que fueron rellenados procedi a analizar la correlacion entre las variables y el precio de venta. Las analice por bloques,
 primero las numericas, luego las categoricas ordinales y las categoricas no ordinales.
 
 Seleccione unicamente las variables que tenian una correlacion mayor a 0.4 y luego, de las variables resultantes,
 elimine las que tenian una correlacion mayor a 0.8 entre ellas.
 
-# ------------------------------------ Datos atipicos --------------------------------
+##  Datos atipicos 
 Unicamente elimine los registros que tenian datos atipicos en la variable de respuesta, SalePrice, utilizando el rango intercuartil. 
 
-# --------------------------------- Seleccion del modelo ------------------------------
+##  Seleccion del modelo
 Primero opte por una regresion lineal porque creo que este es un problema de regresion y al ser un dataset relativamente pequeño
 mi primera opcion fue resolver la regresion con una ecuacion normal. Fui agregando las avriables por bloque; primero las numericas,
 luego las categoricas ordinales y por ultimo las categoricas no ordinales. Apoyandome en todo momento de las curvas de aprendizaje 
@@ -38,7 +38,7 @@ regresion lineal de sklearn.
 
 Realice un split del set de datos con 60% para entrenamiento y 40% para validacion
 
-# -------------------------------- Optimizacion del modelo ----------------------------
+##  Optimizacion del modelo
 Primero agregue las variables numericas; el modelo tenia un alto bias, entonces agregue features de segundo grado. Cree features 
 tales que, para feature1 cree (feature1)^2. Probe con features hasta grado 10 y el mejor era el grado 4.
 
@@ -48,7 +48,7 @@ grado es 2.
 Al final agregue las categoricas no ordinales, y algunas ordinales como no ordinales por lo complejo de convertirlas, y cree dummies 
 de ellas. Las agregue al modelo y lo entrene.
 
-# -------------------------------- Diccionario de archivos ----------------------------
+##  Diccionario de archivos 
 train.ipynb                     ----->      notebook donde se entreno la regresion lineal.
 
 exploracion.ipyn                ----->      archivo de exploracion de datas y desicion de cuales variables usar.
@@ -69,5 +69,5 @@ pred_test.csv                   ----->      archivo de resultados del house_test
 train_gd.ipyn                   ----->      exprimento fallido de regresion lineal sin librerias de sklearn
 
 
-# --------------------------------Bibliografia---------------------------------------
+## Bibliografia
 http://eli.thegreenplace.net/2014/derivation-of-the-normal-equation-for-linear-regression
