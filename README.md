@@ -48,7 +48,7 @@ grado es 2.
 Al final agregue las categoricas no ordinales, y algunas ordinales como no ordinales por lo complejo de convertirlas, y cree dummies 
 de ellas. Las agregue al modelo y lo entrene.
 
-# Root Mean Squared Logarithmic Error (RMSLE)
+## Root Mean Squared Logarithmic Error (RMSLE)
 Este modelo presenta un RMSLE de 0.139 en el set de validacion.
 
 ##  Diccionario de archivos 
